@@ -99,6 +99,18 @@ python visualize_graph.py
 
 ---
 
+## Testing
+
+Unit tests cover the supervisor's routing logic and the critique safety checks (no API keys required):
+
+```bash
+uv run pytest tests/ -v
+```
+
+Tests run automatically on every push via [GitHub Actions](.github/workflows/tests.yml).
+
+---
+
 ## Agent Architecture
 
 ```
