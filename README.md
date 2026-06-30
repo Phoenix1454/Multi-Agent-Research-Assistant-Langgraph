@@ -60,8 +60,8 @@ Multi-Agent-Research-Assistant-Langgraph/
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/ak1454789/multi-agent-research-assistant.git
-cd multi-agent-research-assistant
+git clone https://github.com/Phoenix1454/Multi-Agent-Research-Assistant-Langgraph.git
+cd Multi-Agent-Research-Assistant-Langgraph
 ```
 
 ### 2. Install dependencies
@@ -138,6 +138,18 @@ Each agent runs as a node in a LangGraph `StateGraph`. The Supervisor uses condi
 
 ---
 
+## Testing
+
+Unit tests cover the Supervisor's routing logic and the Critiquer's safety checks — no API keys required:
+
+```bash
+uv run pytest tests/ -v
+```
+
+Tests run automatically on every push via GitHub Actions.
+
+---
+
 ## Troubleshooting
 
 **API key errors** — check your `.env` is in the project root with no extra spaces
@@ -157,4 +169,4 @@ MIT © 2026 Amit Kumar — see [LICENSE](LICENSE)
 ## Connect
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Amit_Kumar-blue?logo=linkedin)](https://www.linkedin.com/in/amitkumar1454/)
-[![GitHub](https://img.shields.io/badge/GitHub-ak1454789-black?logo=github)](https://github.com/ak1454789)
+[![GitHub](https://img.shields.io/badge/GitHub-Phoenix1454-black?logo=github)](https://github.com/Phoenix1454)
