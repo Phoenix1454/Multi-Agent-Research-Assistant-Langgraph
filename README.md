@@ -113,16 +113,24 @@ Tests run automatically on every push via [GitHub Actions](.github/workflows/tes
 
 ## Agent Architecture
 
-```
-START
-  │
-  ▼
-Supervisor ──► Researcher ──┐
-  ▲                         │
-  └──── Critiquer ◄── Writer┘
-  │
-  ▼ (APPROVED or max revisions)
-END
+```mermaid
+flowchart TD
+    START([START]) --> SUP[Supervisor]
+    SUP -->|no research yet| RES[Researcher]
+    SUP -->|research done, no draft| WRI[Writer]
+    SUP -->|critique pending| WRI
+    SUP -->|APPROVED| END([END])
+    SUP -->|max revisions reached| END
+    RES -->|findings ready| SUP
+    WRI -->|draft ready| CRI[Critiquer]
+    CRI -->|score + feedback| SUP
+
+    style START fill:#1e3a5f,color:#fff,stroke:none
+    style END fill:#1e3a5f,color:#fff,stroke:none
+    style SUP fill:#4f46e5,color:#fff,stroke:none
+    style RES fill:#0891b2,color:#fff,stroke:none
+    style WRI fill:#059669,color:#fff,stroke:none
+    style CRI fill:#b45309,color:#fff,stroke:none
 ```
 
 Each agent runs as a node in a LangGraph `StateGraph`. The Supervisor uses conditional edges to route between nodes based on workflow state — no hardcoded sequencing.
